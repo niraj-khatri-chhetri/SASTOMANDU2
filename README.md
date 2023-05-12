@@ -1,4 +1,4 @@
-# MERN E-COMMERCE TUTORIAL
+# SASTOMANDU - SELL YOUR USED PRODUCTS TODAY !!
 
 Hi! My name is **Niraj Kc**, I have created this project to sell and buy second hand products online using MERN Stack for final year project.
 
