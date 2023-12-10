@@ -1,53 +1,47 @@
 import React from 'react';
 import './aboutSection.css';
-import { Button, Typography, Avatar } from '@material-ui/core';
-import YouTubeIcon from '@material-ui/icons/YouTube';
-import InstagramIcon from '@material-ui/icons/Instagram';
+import NirajImg from '../../../images/niraj.jpg';
+import SudipImg from '../../../images/sudip.jpg';
+import DipendraImg from '../../../images/dipendra.jpg';
+
 const About = () => {
-  const visitInstagram = () => {
-    window.location = 'https://instagram.com';
-  };
   return (
-    <div className="aboutSection">
-      <div></div>
-      <div className="aboutSectionGradient"></div>
-      <div className="aboutSectionContainer">
-        <Typography component="h1">About Us</Typography>
-
-        <div>
-          <div>
-            <Avatar
-              style={{ width: '10vmax', height: '10vmax', margin: '2vmax 0' }}
-              src=""
-              alt="Founder"
-            />
-            <Typography>
-              <ul>Niraj Sudip Dipendra</ul>
-            </Typography>
-            <Button onClick={visitInstagram} color="primary">
-              Visit Instagram
-            </Button>
-            <span>
-              This web application is made as a final year project by the group
-              that includes following memebers: Niraj Kc,Dipendra Pahadi,Sudip
-              Adhikari.The project is completed on top of the latest
-              technologies and practices such as
-              mongodb,react.js,node.js,express.js and so on.
-            </span>
+    <>
+      <h2 className="about-us">About Us</h2>
+      <div className="underline-about"></div>
+      <section id="about">
+        <div className="person">
+          <div className="container-about">
+            <div className="container-inner">
+              <img className="circle" src={NirajImg} alt="Person 1" />
+            </div>
           </div>
-          <div className="aboutSectionContainer2">
-            <Typography component="h2">Our Brands</Typography>
-            <a href="https://www.youtube.com" target="blank">
-              <YouTubeIcon className="youtubeSvgIcon" />
-            </a>
-
-            <a href="https://instagram.com" target="blank">
-              <InstagramIcon className="instagramSvgIcon" />
-            </a>
-          </div>
+          <div className="divider"></div>
+          <div className="name">Niraj</div>
+          <div className="title-about">Backend Developer</div>
         </div>
-      </div>
-    </div>
+        <div className="person">
+          <div className="container-about">
+            <div className="container-inner">
+              <img className="circle" src={SudipImg} alt="Person 2" />
+            </div>
+          </div>
+          <div className="divider"></div>
+          <div className="name">Sudeep</div>
+          <div className="title-about">Frontend Developer</div>
+        </div>
+        <div className="person">
+          <div className="container-about">
+            <div className="container-inner">
+              <img className="circle" src={DipendraImg} alt="Person 3" />
+            </div>
+          </div>
+          <div className="divider"></div>
+          <div className="name">Dipendra</div>
+          <div className="title-about">API design and testing</div>
+        </div>
+      </section>
+    </>
   );
 };
 

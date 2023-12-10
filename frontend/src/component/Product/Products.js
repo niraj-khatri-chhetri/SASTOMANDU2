@@ -1,23 +1,25 @@
-import React, { Fragment, useEffect, useState } from "react";
-import "./Products.css";
-import { useSelector, useDispatch } from "react-redux";
-import { clearErrors, getProduct } from "../../actions/productAction";
-import Loader from "../layout/Loader/Loader";
-import ProductCard from "../Home/ProductCard";
-import Pagination from "react-js-pagination";
-import Slider from "@material-ui/core/Slider";
-import { useAlert } from "react-alert";
-import Typography from "@material-ui/core/Typography";
-import MetaData from "../layout/MetaData";
+import React, { Fragment, useEffect, useState } from 'react';
+import './Products.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearErrors, getProduct } from '../../actions/productAction';
+import Loader from '../layout/Loader/Loader';
+import ProductCard from '../Home/ProductCard';
+import Pagination from 'react-js-pagination';
+import Slider from '@material-ui/core/Slider';
+import { useAlert } from 'react-alert';
+import Typography from '@material-ui/core/Typography';
+import MetaData from '../layout/MetaData';
 
 const categories = [
-  "Laptop",
-  "Footwear",
-  "Bottom",
-  "Tops",
-  "Attire",
-  "Camera",
-  "SmartPhones",
+  'Laptop',
+  'Footwear',
+  'Bottom',
+  'Tops',
+  'Attire',
+  'Camera',
+  'SmartPhones',
+  'Electronics',
+  'Other',
 ];
 
 const Products = ({ match }) => {
@@ -27,7 +29,7 @@ const Products = ({ match }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([0, 25000]);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState('');
 
   const [ratings, setRatings] = useState(0);
 
@@ -66,8 +68,10 @@ const Products = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title="PRODUCTS -- ECOMMERCE" />
-          <h2 className="productsHeading">Products</h2>
+          <MetaData title="PRODUCTS -- SASTOMANDU" />
+          <h2 style={{ marginTop: '50px' }} className="productsHeading">
+            Products
+          </h2>
 
           <div className="products">
             {products &&

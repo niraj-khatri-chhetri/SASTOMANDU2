@@ -1,12 +1,12 @@
-import React, { Fragment, useEffect } from "react";
-import "./orderDetails.css";
-import { useSelector, useDispatch } from "react-redux";
-import MetaData from "../layout/MetaData";
-import { Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
-import { getOrderDetails, clearErrors } from "../../actions/orderAction";
-import Loader from "../layout/Loader/Loader";
-import { useAlert } from "react-alert";
+import React, { Fragment, useEffect } from 'react';
+import './orderDetails.css';
+import { useSelector, useDispatch } from 'react-redux';
+import MetaData from '../layout/MetaData';
+import { Link } from 'react-router-dom';
+import { Typography } from '@material-ui/core';
+import { getOrderDetails, clearErrors } from '../../actions/orderAction';
+import Loader from '../layout/Loader/Loader';
+import { useAlert } from 'react-alert';
 
 const OrderDetails = ({ match }) => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
@@ -60,15 +60,15 @@ const OrderDetails = ({ match }) => {
                   <p
                     className={
                       order.paymentInfo &&
-                      order.paymentInfo.status === "succeeded"
-                        ? "greenColor"
-                        : "redColor"
+                      order.paymentInfo.status === 'succeeded'
+                        ? 'greenColor'
+                        : 'redColor'
                     }
                   >
                     {order.paymentInfo &&
-                    order.paymentInfo.status === "succeeded"
-                      ? "PAID"
-                      : "NOT PAID"}
+                    order.paymentInfo.status === 'succeeded'
+                      ? 'PAID'
+                      : 'NOT PAID'}
                   </p>
                 </div>
 
@@ -83,9 +83,9 @@ const OrderDetails = ({ match }) => {
                 <div>
                   <p
                     className={
-                      order.orderStatus && order.orderStatus === "Delivered"
-                        ? "greenColor"
-                        : "redColor"
+                      order.orderStatus && order.orderStatus === 'Delivered'
+                        ? 'greenColor'
+                        : 'redColor'
                     }
                   >
                     {order.orderStatus && order.orderStatus}
@@ -103,10 +103,10 @@ const OrderDetails = ({ match }) => {
                       <img src={item.image} alt="Product" />
                       <Link to={`/product/${item.product}`}>
                         {item.name}
-                      </Link>{" "}
+                      </Link>{' '}
                       <span>
-                        {item.quantity} X ₹{item.price} ={" "}
-                        <b>₹{item.price * item.quantity}</b>
+                        {item.quantity} X Rs. {item.price} ={' '}
+                        <b>Rs. {item.price * item.quantity}</b>
                       </span>
                     </div>
                   ))}

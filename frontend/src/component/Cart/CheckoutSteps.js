@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
-import { Typography, Stepper, StepLabel, Step } from "@material-ui/core";
-import LocalShippingIcon from "@material-ui/icons/LocalShipping";
-import LibraryAddCheckIcon from "@material-ui/icons/LibraryAddCheck";
-import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
-import "./CheckoutSteps.css";
+import React, { Fragment } from 'react';
+import { Typography, Stepper, StepLabel, Step } from '@material-ui/core';
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
+import LibraryAddCheckIcon from '@material-ui/icons/LibraryAddCheck';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import './CheckoutSteps.css';
 
 const CheckoutSteps = ({ activeStep }) => {
   const steps = [
@@ -22,7 +22,9 @@ const CheckoutSteps = ({ activeStep }) => {
   ];
 
   const stepStyles = {
-    boxSizing: "border-box",
+    boxSizing: 'border-box',
+    marginTop: '4rem',
+    background: ' #f2f2f2',
   };
 
   return (
@@ -36,7 +38,7 @@ const CheckoutSteps = ({ activeStep }) => {
           >
             <StepLabel
               style={{
-                color: activeStep >= index ? "tomato" : "rgba(0, 0, 0, 0.649)",
+                color: activeStep >= index ? 'tomato' : 'rgba(0, 0, 0, 0.649)',
               }}
               icon={item.icon}
             >

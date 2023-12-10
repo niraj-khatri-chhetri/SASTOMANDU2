@@ -1,17 +1,17 @@
-import React, { Fragment, useEffect, useState } from "react";
-import "./newProduct.css";
-import { useSelector, useDispatch } from "react-redux";
-import { clearErrors, createProduct } from "../../actions/productAction";
-import { useAlert } from "react-alert";
-import { Button } from "@material-ui/core";
-import MetaData from "../layout/MetaData";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import DescriptionIcon from "@material-ui/icons/Description";
-import StorageIcon from "@material-ui/icons/Storage";
-import SpellcheckIcon from "@material-ui/icons/Spellcheck";
-import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
-import SideBar from "./Sidebar";
-import { NEW_PRODUCT_RESET } from "../../constants/productConstants";
+import React, { Fragment, useEffect, useState } from 'react';
+import './newProduct.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearErrors, createProduct } from '../../actions/productAction';
+import { useAlert } from 'react-alert';
+import { Button } from '@material-ui/core';
+import MetaData from '../layout/MetaData';
+import AccountTreeIcon from '@material-ui/icons/AccountTree';
+import DescriptionIcon from '@material-ui/icons/Description';
+import StorageIcon from '@material-ui/icons/Storage';
+import SpellcheckIcon from '@material-ui/icons/Spellcheck';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import SideBar from './Sidebar';
+import { NEW_PRODUCT_RESET } from '../../constants/productConstants';
 
 const NewProduct = ({ history }) => {
   const dispatch = useDispatch();
@@ -19,22 +19,24 @@ const NewProduct = ({ history }) => {
 
   const { loading, error, success } = useSelector((state) => state.newProduct);
 
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState('');
   const [Stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
   const categories = [
-    "Laptop",
-    "Footwear",
-    "Bottom",
-    "Tops",
-    "Attire",
-    "Camera",
-    "SmartPhones",
+    'Laptop',
+    'Footwear',
+    'Bottom',
+    'Tops',
+    'Attire',
+    'Camera',
+    'SmartPhones',
+    'Electronics',
+    'Other',
   ];
 
   useEffect(() => {
@@ -44,8 +46,8 @@ const NewProduct = ({ history }) => {
     }
 
     if (success) {
-      alert.success("Product Created Successfully");
-      history.push("/admin/dashboard");
+      alert.success('Product Created Successfully');
+      history.push('/admin/dashboard');
       dispatch({ type: NEW_PRODUCT_RESET });
     }
   }, [dispatch, alert, error, history, success]);
@@ -55,14 +57,14 @@ const NewProduct = ({ history }) => {
 
     const myForm = new FormData();
 
-    myForm.set("name", name);
-    myForm.set("price", price);
-    myForm.set("description", description);
-    myForm.set("category", category);
-    myForm.set("Stock", Stock);
+    myForm.set('name', name);
+    myForm.set('price', price);
+    myForm.set('description', description);
+    myForm.set('category', category);
+    myForm.set('Stock', Stock);
 
     images.forEach((image) => {
-      myForm.append("images", image);
+      myForm.append('images', image);
     });
     dispatch(createProduct(myForm));
   };

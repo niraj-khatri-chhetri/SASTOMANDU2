@@ -1,26 +1,26 @@
-import React, { Fragment, useEffect, useRef } from "react";
-import CheckoutSteps from "../Cart/CheckoutSteps";
-import { useSelector, useDispatch } from "react-redux";
-import MetaData from "../layout/MetaData";
-import { Typography } from "@material-ui/core";
-import { useAlert } from "react-alert";
+import React, { Fragment, useEffect, useRef } from 'react';
+import CheckoutSteps from '../Cart/CheckoutSteps';
+import { useSelector, useDispatch } from 'react-redux';
+import MetaData from '../layout/MetaData';
+import { Typography } from '@material-ui/core';
+import { useAlert } from 'react-alert';
 import {
   CardNumberElement,
   CardCvcElement,
   CardExpiryElement,
   useStripe,
   useElements,
-} from "@stripe/react-stripe-js";
+} from '@stripe/react-stripe-js';
 
-import axios from "axios";
-import "./payment.css";
-import CreditCardIcon from "@material-ui/icons/CreditCard";
-import EventIcon from "@material-ui/icons/Event";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
-import { createOrder, clearErrors } from "../../actions/orderAction";
+import axios from 'axios';
+import './payment.css';
+import CreditCardIcon from '@material-ui/icons/CreditCard';
+import EventIcon from '@material-ui/icons/Event';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import { createOrder, clearErrors } from '../../actions/orderAction';
 
 const Payment = ({ history }) => {
-  const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
+  const orderInfo = JSON.parse(sessionStorage.getItem('orderInfo'));
 
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -53,11 +53,11 @@ const Payment = ({ history }) => {
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       };
       const { data } = await axios.post(
-        "/api/v1/payment/process",
+        '/api/v1/payment/process',
         paymentData,
         config
       );
@@ -88,7 +88,7 @@ const Payment = ({ history }) => {
 
         alert.error(result.error.message);
       } else {
-        if (result.paymentIntent.status === "succeeded") {
+        if (result.paymentIntent.status === 'succeeded') {
           order.paymentInfo = {
             id: result.paymentIntent.id,
             status: result.paymentIntent.status,
@@ -96,7 +96,7 @@ const Payment = ({ history }) => {
 
           dispatch(createOrder(order));
 
-          history.push("/success");
+          history.push('/success');
         } else {
           alert.error("There's some issue while processing payment ");
         }
@@ -136,7 +136,7 @@ const Payment = ({ history }) => {
 
           <input
             type="submit"
-            value={`Pay - ₹${orderInfo && orderInfo.totalPrice}`}
+            value={`Pay - Rs.${orderInfo && orderInfo.totalPrice}`}
             ref={payBtn}
             className="paymentFormBtn"
           />

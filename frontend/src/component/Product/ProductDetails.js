@@ -1,26 +1,26 @@
-import React, { Fragment, useEffect, useState } from "react";
-import Carousel from "react-material-ui-carousel";
-import "./ProductDetails.css";
-import { useSelector, useDispatch } from "react-redux";
+import React, { Fragment, useEffect, useState } from 'react';
+import Carousel from 'react-material-ui-carousel';
+import './ProductDetails.css';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   clearErrors,
   getProductDetails,
   newReview,
-} from "../../actions/productAction";
-import ReviewCard from "./ReviewCard.js";
-import Loader from "../layout/Loader/Loader";
-import { useAlert } from "react-alert";
-import MetaData from "../layout/MetaData";
-import { addItemsToCart } from "../../actions/cartAction";
+} from '../../actions/productAction';
+import ReviewCard from './ReviewCard.js';
+import Loader from '../layout/Loader/Loader';
+import { useAlert } from 'react-alert';
+import MetaData from '../layout/MetaData';
+import { addItemsToCart } from '../../actions/cartAction';
 import {
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
   Button,
-} from "@material-ui/core";
-import { Rating } from "@material-ui/lab";
-import { NEW_REVIEW_RESET } from "../../constants/productConstants";
+} from '@material-ui/core';
+import { Rating } from '@material-ui/lab';
+import { NEW_REVIEW_RESET } from '../../constants/productConstants';
 
 const ProductDetails = ({ match }) => {
   const dispatch = useDispatch();
@@ -30,12 +30,14 @@ const ProductDetails = ({ match }) => {
     (state) => state.productDetails
   );
 
+  console.log('Users product', product.user);
+
   const { success, error: reviewError } = useSelector(
     (state) => state.newReview
   );
 
   const options = {
-    size: "large",
+    size: 'large',
     value: product.ratings,
     readOnly: true,
     precision: 0.5,
@@ -44,7 +46,7 @@ const ProductDetails = ({ match }) => {
   const [quantity, setQuantity] = useState(1);
   const [open, setOpen] = useState(false);
   const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
 
   const increaseQuantity = () => {
     if (product.Stock <= quantity) return;
@@ -62,7 +64,7 @@ const ProductDetails = ({ match }) => {
 
   const addToCartHandler = () => {
     dispatch(addItemsToCart(match.params.id, quantity));
-    alert.success("Item Added To Cart");
+    alert.success('Item Added To Cart');
   };
 
   const submitReviewToggle = () => {
@@ -72,9 +74,9 @@ const ProductDetails = ({ match }) => {
   const reviewSubmitHandler = () => {
     const myForm = new FormData();
 
-    myForm.set("rating", rating);
-    myForm.set("comment", comment);
-    myForm.set("productId", match.params.id);
+    myForm.set('rating', rating);
+    myForm.set('comment', comment);
+    myForm.set('productId', match.params.id);
 
     dispatch(newReview(myForm));
 
@@ -93,7 +95,7 @@ const ProductDetails = ({ match }) => {
     }
 
     if (success) {
-      alert.success("Review Submitted Successfully");
+      alert.success('Review Submitted Successfully');
       dispatch({ type: NEW_REVIEW_RESET });
     }
     dispatch(getProductDetails(match.params.id));
@@ -105,7 +107,7 @@ const ProductDetails = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title={`${product.name} -- ECOMMERCE`} />
+          <MetaData title={`${product.name} -- SASTOMANDU`} />
           <div className="ProductDetails">
             <div>
               <Carousel>
@@ -129,12 +131,12 @@ const ProductDetails = ({ match }) => {
               <div className="detailsBlock-2">
                 <Rating {...options} />
                 <span className="detailsBlock-2-span">
-                  {" "}
+                  {' '}
                   ({product.numOfReviews} Reviews)
                 </span>
               </div>
               <div className="detailsBlock-3">
-                <h1>{`₹${product.price}`}</h1>
+                <h1>{`Rs.${product.price}`}</h1>
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                     <button onClick={decreaseQuantity}>-</button>
@@ -151,8 +153,8 @@ const ProductDetails = ({ match }) => {
 
                 <p>
                   Status:
-                  <b className={product.Stock < 1 ? "redColor" : "greenColor"}>
-                    {product.Stock < 1 ? "OutOfStock" : "InStock"}
+                  <b className={product.Stock < 1 ? 'redColor' : 'greenColor'}>
+                    {product.Stock < 1 ? 'OutOfStock' : 'InStock'}
                   </b>
                 </p>
               </div>

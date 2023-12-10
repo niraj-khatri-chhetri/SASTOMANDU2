@@ -1,17 +1,17 @@
-import React, { Fragment, useState } from "react";
-import "./Shipping.css";
-import { useSelector, useDispatch } from "react-redux";
-import { saveShippingInfo } from "../../actions/cartAction";
-import MetaData from "../layout/MetaData";
-import PinDropIcon from "@material-ui/icons/PinDrop";
-import HomeIcon from "@material-ui/icons/Home";
-import LocationCityIcon from "@material-ui/icons/LocationCity";
-import PublicIcon from "@material-ui/icons/Public";
-import PhoneIcon from "@material-ui/icons/Phone";
-import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStation";
-import { Country, State } from "country-state-city";
-import { useAlert } from "react-alert";
-import CheckoutSteps from "../Cart/CheckoutSteps";
+import React, { Fragment, useState } from 'react';
+import './Shipping.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { saveShippingInfo } from '../../actions/cartAction';
+import MetaData from '../layout/MetaData';
+import PinDropIcon from '@material-ui/icons/PinDrop';
+import HomeIcon from '@material-ui/icons/Home';
+import LocationCityIcon from '@material-ui/icons/LocationCity';
+import PublicIcon from '@material-ui/icons/Public';
+import PhoneIcon from '@material-ui/icons/Phone';
+import TransferWithinAStationIcon from '@material-ui/icons/TransferWithinAStation';
+import { Country, State } from 'country-state-city';
+import { useAlert } from 'react-alert';
+import CheckoutSteps from '../Cart/CheckoutSteps';
 
 const Shipping = ({ history }) => {
   const dispatch = useDispatch();
@@ -29,21 +29,20 @@ const Shipping = ({ history }) => {
     e.preventDefault();
 
     if (phoneNo.length < 10 || phoneNo.length > 10) {
-      alert.error("Phone Number should be 10 digits Long");
+      alert.error('Phone Number should be 10 digits Long');
       return;
     }
+
     dispatch(
       saveShippingInfo({ address, city, state, country, pinCode, phoneNo })
     );
-    history.push("/order/confirm");
+    history.push('/order/confirm');
   };
 
   return (
     <Fragment>
       <MetaData title="Shipping Details" />
-
       <CheckoutSteps activeStep={0} />
-
       <div className="shippingContainer">
         <div className="shippingBox">
           <h2 className="shippingHeading">Shipping Details</h2>

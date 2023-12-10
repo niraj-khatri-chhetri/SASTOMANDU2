@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Rating } from "@material-ui/lab";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Rating } from '@material-ui/lab';
 
 const ProductCard = ({ product }) => {
   const options = {
@@ -8,18 +8,27 @@ const ProductCard = ({ product }) => {
     readOnly: true,
     precision: 0.5,
   };
+
   return (
     <Link className="productCard" to={`/product/${product._id}`}>
-      <img src={product.images[0].url} alt={product.name} />
+      <img
+        style={{
+          height: '200px',
+          width: '100%',
+          objectFit: 'contain',
+        }}
+        src={product.images[0].url}
+        alt={product.name}
+      />
       <p>{product.name}</p>
       <div>
-        <Rating {...options} />{" "}
+        <Rating {...options} />{' '}
         <span className="productCardSpan">
-          {" "}
+          {' '}
           ({product.numOfReviews} Reviews)
         </span>
       </div>
-      <span>{`₹${product.price}`}</span>
+      <span>{`Rs. ${product.price}`}</span>
     </Link>
   );
 };
