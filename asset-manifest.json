@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/SASTOMANDU2/static/css/main.0bf4a982.chunk.css",
+    "main.js": "/SASTOMANDU2/static/js/main.f23dadf2.chunk.js",
+    "main.js.map": "/SASTOMANDU2/static/js/main.f23dadf2.chunk.js.map",
+    "runtime-main.js": "/SASTOMANDU2/static/js/runtime-main.6728ca61.js",
+    "runtime-main.js.map": "/SASTOMANDU2/static/js/runtime-main.6728ca61.js.map",
+    "static/css/2.9af896a7.chunk.css": "/SASTOMANDU2/static/css/2.9af896a7.chunk.css",
+    "static/js/2.655eb99b.chunk.js": "/SASTOMANDU2/static/js/2.655eb99b.chunk.js",
+    "static/js/2.655eb99b.chunk.js.map": "/SASTOMANDU2/static/js/2.655eb99b.chunk.js.map",
+    "index.html": "/SASTOMANDU2/index.html",
+    "static/css/2.9af896a7.chunk.css.map": "/SASTOMANDU2/static/css/2.9af896a7.chunk.css.map",
+    "static/css/main.0bf4a982.chunk.css.map": "/SASTOMANDU2/static/css/main.0bf4a982.chunk.css.map",
+    "static/js/2.655eb99b.chunk.js.LICENSE.txt": "/SASTOMANDU2/static/js/2.655eb99b.chunk.js.LICENSE.txt",
+    "static/media/Appstore.d0c58399.png": "/SASTOMANDU2/static/media/Appstore.d0c58399.png",
+    "static/media/Profile.697fdcd2.png": "/SASTOMANDU2/static/media/Profile.697fdcd2.png",
+    "static/media/Nav.css": "/SASTOMANDU2/static/media/cover.e2edeab1.jfif",
+    "static/media/dipendra.a30a716c.jpg": "/SASTOMANDU2/static/media/dipendra.a30a716c.jpg",
+    "static/media/niraj.2e43c29e.jpg": "/SASTOMANDU2/static/media/niraj.2e43c29e.jpg",
+    "static/media/playstore.82b48319.png": "/SASTOMANDU2/static/media/playstore.82b48319.png",
+    "static/media/sastomandu.9b5821f1.png": "/SASTOMANDU2/static/media/sastomandu.9b5821f1.png",
+    "static/media/sudip.fa2fba7d.jpg": "/SASTOMANDU2/static/media/sudip.fa2fba7d.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6728ca61.js",
+    "static/css/2.9af896a7.chunk.css",
+    "static/js/2.655eb99b.chunk.js",
+    "static/css/main.0bf4a982.chunk.css",
+    "static/js/main.f23dadf2.chunk.js"
+  ]
+}
